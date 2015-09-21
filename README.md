@@ -9,14 +9,20 @@ _Descriptive text from the homepage_
 > The InterPlanetary File System (IPFS) is a new hypermedia distribution protocol, addressed by content and identities. IPFS enables the creation of completely distributed applications. It aims to make the web faster, safer, and more open.
 
 Questions:
- * Why IPFS? Why InterPlanetary? _Answered in the ipfs/ipfs repository, [here](https://github.com/ipfs/ipfs#why-the-name-ipfs). I expected this to be answered in the _About_ page on the website, but that links back to the home page. This is confusing for anyone coming just through the website.
+ * Why IPFS? Why InterPlanetary?
+
+ > Answered in the ipfs/ipfs repository, [here](https://github.com/ipfs/ipfs#why-the-name-ipfs). I expected this to be answered in the _About_ page on the website, but that links back to the home page. This is confusing for anyone coming just through the website.
  * What does _hypermedia_ mean?
+
  > Hypermedia is a non-linear (which can be consumed in any order) medium of information similar to "multimedia", but including hyperlinks. An example is the World Wide Web (Internet + DNS + URLs + Servers) which can offer __audio__,__video__, __text__, __graphics__ and __hyperlinks (URLs)__, just like __IPFS__ can.
  * What is a _protocol_? Is it a technical specification, or the implementation, or both?
+
  > A Protocol is a set of rules, typically used to solve one or more problems. In Information Technology, the word Protocol is used to refer to the set of rules, its technical specification and its implementation. An implementation of a protocol is a program or part of a program which conforms to the specification of the protocol. A program may implement multiple protocols, and each protocol has a different purpose.
  * What is a _distribution protocol_?
+
  > A distribution protocol is a protocol which solves the problem of distributing data. Depending on the specific protocols
  * What does _addressed by content and identities_ mean?
+ 
  > #### Let's take a step back
  > First, let's take a look at classic URLs, like http://google.com. This URL tells your computer to use the __HTTP__ protocol to access __google.com__. Your computer then proceeds to use the __DNS__ protocol to figure out where is __google.com__. When it's done, it creates a connection via the Internet to __google.com__'s __IP__ address. This means that __URLs on the Internet address content by location__ and if the content is moved to another location, the connection won't work and the URL will be useless.
 
