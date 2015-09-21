@@ -76,10 +76,9 @@ Questions:
 
  * What does it mean that IPFS can work even without the Internet? How is it possible?
  * Doesn't the internet already connect all computing devices? What do you mean by _system of files_?
- * What is a BitTorrent swarm.P
+ * What is a BitTorrent swarm?
  * How do you exhange objects inside of a git repository? What does this mean?
  * What does _high throughput_ mean?
- * What does _content-addressed_ mean?
  * What is _block storage_?
  * How does IPFS prove a model? I thought it was a protocol.
  * What defines the subset of hyperlinks that are _content-addressed_?
