@@ -40,11 +40,12 @@ Hypermedia is a non-linear (which can be consumed in any order) medium of inform
 
 #### What is a _protocol_? Is it a technical specification, or the implementation, or both?
 
+
 A Protocol is a set of rules, typically used to solve one or more problems. In Information Technology, the word Protocol is used to refer to the set of rules, its technical specification and its implementation. An implementation of a protocol is a program or part of a program which conforms to the specification of the protocol. A program may implement multiple protocols, and each protocol has a different purpose.
 
 #### What is a _distribution protocol_?
 
-A distribution protocol is a protocol which solves the problem of distributing data. Depending on the specific protocols
+A distribution protocol is a protocol which solves the problem of distributing data. A networking protocol can be generic or specialize in different use cases or for different kinds of applications.
 
 #### What does _addressed by content and identities_ mean?
 
@@ -52,22 +53,22 @@ Let's take a step back.
 
 First, let's take a look at classic URLs, like http://google.com. This URL tells your computer to use the __HTTP__ protocol to access __google.com__. Your computer then proceeds to use the __DNS__ protocol to figure out where is __google.com__. When it's done, it creates a connection via the Internet to __google.com__'s __IP__ address. This means that __URLs on the Internet address content by location__ and if the content is moved to another location, the connection won't work and the URL will be useless.
 
-#### So what's "addressed by content" mean?
+#### So what's _addressed by content_ mean?
 
 __IPFS addresses data by content__ which means that an __IPFS URIs__ (like `/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example`) tell your computer __what object you want__ and not __where to get it__. __IPFS__ then figures out how to get the object on its own. This has many advantages:
  - even if a file is moved, as long as there's at least one computer on the Internet that has it on IPFS, __it's never going to get lost__.
  - every computer can calculate the address of an object and it's always going to be the same if the object is the same, so __you're always sure that the data you get has not been tampered with__ or when your computer verifies the address, it would get a different one and it would know the content was changed. This also means that if two distinct computers add the same file, it makes no difference to you or IPFS if it's downloaded from one or another.
  - __if multiple people have the same object, your computer can download it from many sources, speeding up distribution when more people have it__ instead of clogging the server that's trying to send thousands of copies to thousands of machines. IPFS will share object with other computers and other computers will help you get your files faster.
 
-#### So what's "addressed by identity" mean?
- 
+#### So what's _addressed by identity_ mean?
+
 __IPFS can also address data by identity, using IPNS__. This means that each computer running IPFS has an identity. Everything that they do is signed using their credentials. __IPNS makes it possible to have dynamic content in IPFS, for example a web application which can be updated without changing its address!__
 
 This works because the application can be referenced with an __IPNS Address__ which tell your computer __the identity of the publisher of the application__. IPFS will then figure out the __IPFS Address__ associated to said identity by the owner of the identity (a.k.a. the publisher). The associated address can only be changed by the publisher. __If a bad guy tries to impersonate a machine he doesn't own, your computer will not trust him because when he tells your computer the wrong IPFS address for an IPNS name, that message won't be signed using the publisher's identity private key because only the publisher has that__. Using __public key cryptography__, __your computer can verify the authenticity of messages coming from other computers__, so as long as the private keys of a publisher aren't stolen, you will be totally safe :)
 
 #### "IPFS enables" suggests that IPFS is a tool; does this mean it is more than a specification, but a suite of tools that can be used?
- 
- IPFS can be intended as a protocol, a set of protocols or their implementation. So yes, IPFS is also a suite of tools that enable machines and users to take advantage of the protocol.
+
+IPFS can be intended as a protocol, a set of protocols or their implementation. So yes, IPFS is also a suite of tools that enable machines and users to take advantage of the protocol.
 
 #### Why _completely distributed_? If they are completely distributed, how do they interface with non-distributed networks (http, etc?)?
 #### What is a _distributed application_?
@@ -79,7 +80,7 @@ This works because the application can be referenced with an __IPNS Address__ wh
 
 #### Is peer-to-peer the same as distributed?
 #### What is Distributed Networking/Computing
-  
+
 __Distributed computing or networking__ refers to a network or computer system where data is distributed on multiple machines.
 
 It goes in contrast with __centralized networking__, which uses a single or a small group of centralized server machines, and all data goes through them, never directly between clients. This makes it easier to control authenticity and the network in general, but also exposes a central point of failure (the servers) which when taken down render the network/application useless.
