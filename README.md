@@ -70,10 +70,51 @@ This works because the application can be referenced with an __IPNS Address__ wh
 IPFS can be intended as a protocol, a set of protocols or their implementation. So yes, IPFS is also a suite of tools that enable machines and users to take advantage of the protocol.
 
 #### Why _completely distributed_? If they are completely distributed, how do they interface with non-distributed networks (http, etc?)?
+
+IPFS can interface with HTTP because each node can expose an __HTTP gateway__. Now you can tell your machine where the gateway is using HTTP (for example http://gateway.ipfs.io) then you tell the gateway what object you want to get from IPFS or IPNS (for example http://gateway.ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example). This way your machine contacts the gateway (at gateway.ipfs.io) and then the machine running the gateway can fetch the data from IPFS for you and reply over HTTP. Of course the _path_ from your machine to the gateway still uses HTTP and not IPFS, but this allows compatibility with applications and systems that don't support IPFS yet.
+
+Gateways could be built for any protocol, but since pretty much everything can interface over HTTP, HTTP is enough for now.
+
 #### What is a _distributed application_?
+
+A _distributed application_ is a network application that uses _distributed networking_ to store information and communicate with other instances of the application and thus doesn't require any centralized system or infrastructure to work. An example of a popular distributed application is any BitTorrent client such as qBittorrent or Vuze.
+
 #### Why would this make the web faster?
+
+Imagine a classroom with twenty students, their laptops and the professor, who wants to share a 50 MB Video with the class. The professor has many options:
+
+1. he could pass a USB drive around with the file if he has a local copy
+2. if the video is already on YouTube or any other website, he could just tell the link to the students. If it's not, he could use his computer and the super slow school network to upload his local copy to Dropbox or Youtube or any other file/video hosting service
+3. if he has a local copy, he could create a file/media server on his machine and tell the address to the students (uh! Complicated!)
+
+Option 1 and 3 are too cumbersome, but option 2 is so slow! Imagine 20 students downloading a 50 MB file at the same time from Dropbox or Youtube or anywhere else on the Web!
+
+- The source website would need to upload 50*20 MB = 1 GB of data to the school!
+- Since the school has a 20 mbit/s download bandwidth (remember 20 mbits means 2.5 MBytes and ISPs always advertise mbits)
+- considering the hundreds of other students may be, very optimistically, only using 50% of that bandwidth we are left with a 1.25 MBytes/s download speed.
+- at 1.25 MBytes/s, it would take 13 hours and twenty minutes to download everything. Even at full speed it would still take more than 6 hours!
+
+__The good news is that IPFS solves all this__.
+
+1. the teacher should add the file to IPFS (which takes at most half a minute) if he has a local copy
+1. then, the teacher gives the IPFS link to the students by showing it on a projector or something like that.
+1. in a few seconds, the students can type the link and start downloading
+1. if the teacher has added a local copy of the video to IPFS using his computer, the students will finish downloading it in a moment because their IPFS node will download the data from the teacher's computer directly, without even going through the web.
+1. if there is no one with a local copy on IPFS in the school, the file will be downloaded from someone on the Web, but since IPFS downloads file from the best, closest source, once 1 person has it the file will be shared locally without even going through the Web. By estimating that the total data downloaded is about a hundred MBytes to get the video via IPFS (assuming no one had it locally), we are being pessimistic!
+
+Also when you download a file from the Web, IPFS can and will download it from multiple sources at the same time to speed up the download as much as possible.
+
 #### Why would this make the web safe?
+
+IPFS uses _content based addressing_ (you can find out what it means the appropriate answer) which in short means that IPFS links tell your computer what data you want, and not where it is. When you download the data from another node, your computer can calculate the address of the downloaded data on its own, so that if it doesn't match what you requested, it knows it's not authentic.
+
+IPNS records are also signed using _public key cryptography_, so that your computer can verify on its own that an IPFS publication was actually published by the node with the ID written in the publication.
+
+In short: no one can tamper with the data, and no one can impersonate anyone else unless the victim's private keys were stolen.
+
 #### Why would this make the web more open?
+
+Anyone (in this case Bob) can serve and host his websites/files/data using IPFS, even on an old computer or a slow and limited connection. Once many people have local copies of the data on their nodes, they will help seed the data so that other people can download it faster, even if Bob has shut down his node.
 
 #### Who are Interplanatery Networks? Why does this direct me to Protocol Labs?
 
@@ -100,7 +141,6 @@ __IPFS is peer to peer__ because every node can use other nodes to get data whil
 
 __IPFS is also fully distributed__ because there is no central point of failure. The only non distributed part of the system is the bootstrap node list. The bootstrap node list is the list of nodes that IPFS connects to when it first starts, because it doesn't know anyone else yet! Then, nodes exchange their peer list, and more and more machines are discovered and connected together, strengthening the network. IPFS can remember nodes it connected to in the past, and the bootstrap list can be extended or changed, so it's almost impossible that your node can't get online. IPFS is also able to automatically find other computers running a node in local networks, so __it works even WITHOUT the internet!__
 
-<<<<<<< 4c4dfdd873a3b18657eb85c895313678a41b1756
 #### What does it mean that IPFS can work even without the Internet? How is it possible?
 
 IPFS will announce its presence over its local network, so that other computers running IPFS can receive the message and connect to your machine. This means that IPFS is able to automatically build a local network if the computers are all in the same LAN and can communicate. So if a file is requested and in the LAN someone has it, it will still work. Services such as an Instant Messaging service (think whatsapp) built on IPFS will still let you chat with people on your LAN if the Internet is not avaikable.
