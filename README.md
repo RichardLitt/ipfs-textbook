@@ -152,7 +152,14 @@ Using __public key cryptography__, nodes can emit signed messages so that other 
 
 #### What is a _namespace_?
 #### What are the points of failure? What does this mean?
+
+A _point of failure_ in a network is a machine that when shut down, malfunctioning or compromised in any way, gravely cripples the network often rendering it totally useless until the point of failure starts working as it should again. Imagine twitter's server shutting down right now. In a moment, nobody would be able to read tweets, write tweets or use twitter in any way!
+
+IPFS doesn't have central _points of failure_ because it's decentralized (you can learn more in the answers to questions related to decentralization). The only point of falure in IPFS is the bootstrap nodes: they are the list of the first nodes that your computer connects to when running IPFS. However, once your computer finds more nodes by talking with the bootstrap nodes, it will remember them so that even if the boostrap nodes are not available (almost impossible since they are many, independent machines across the globe), the network still works (but new users wouldn't be able to join). This can be solved by using a bigger bootstrap node list and hardening them to make them stronger against network limits, attacks and vulnerabilities.
+
 #### What is a node? Why would I expect them to trust each other?
+
+A node is a machine running IPFS. It could be a standard desktop computer, a laptop, a mobile device, anything that can run programs and connect to a network really. Nodes never trust each other unless there is mathematical proof that a message, statement or other information is to be trusted: you can learn more by searching mentions of _public key cryptography_ in this textbook and read the contextual answer and question. Anyway, using _public key cryptography_ and _cryptographic hashes_, your node can prove the authenticity and validity of data received from other nodes.
 
 ## Glossary
 
