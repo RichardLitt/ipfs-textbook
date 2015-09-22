@@ -40,7 +40,6 @@ Hypermedia is a non-linear (which can be consumed in any order) medium of inform
 
 #### What is a _protocol_? Is it a technical specification, or the implementation, or both?
 
-
 A Protocol is a set of rules, typically used to solve one or more problems. In Information Technology, the word Protocol is used to refer to the set of rules, its technical specification and its implementation. An implementation of a protocol is a program or part of a program which conforms to the specification of the protocol. A program may implement multiple protocols, and each protocol has a different purpose.
 
 #### What is a _distribution protocol_?
@@ -101,8 +100,20 @@ __IPFS is peer to peer__ because every node can use other nodes to get data whil
 
 __IPFS is also fully distributed__ because there is no central point of failure. The only non distributed part of the system is the bootstrap node list. The bootstrap node list is the list of nodes that IPFS connects to when it first starts, because it doesn't know anyone else yet! Then, nodes exchange their peer list, and more and more machines are discovered and connected together, strengthening the network. IPFS can remember nodes it connected to in the past, and the bootstrap list can be extended or changed, so it's almost impossible that your node can't get online. IPFS is also able to automatically find other computers running a node in local networks, so __it works even WITHOUT the internet!__
 
+<<<<<<< 4c4dfdd873a3b18657eb85c895313678a41b1756
 #### What does it mean that IPFS can work even without the Internet? How is it possible?
+
+IPFS will announce its presence over its local network, so that other computers running IPFS can receive the message and connect to your machine. This means that IPFS is able to automatically build a local network if the computers are all in the same LAN and can communicate. So if a file is requested and in the LAN someone has it, it will still work. Services such as an Instant Messaging service (think whatsapp) built on IPFS will still let you chat with people on your LAN if the Internet is not avaikable.
+
+This also means that IPFS could be adapted to run over any kind of communication channel, for example Bluetooth.
+
 #### Doesn't the internet already connect all computing devices? What do you mean by _system of files_?
+The Internet does make it possible for every computer to communicate (sometimes not directly due to issues such as NAT) but it doesn't mean they automatically do. On the Web, your computers only connects to another if you tell it to, so if you want to see a website you have to tell your computer where the website is.
+
+IPFS is built on top of the Internet and uses it to automatically find other computers running IPFS and automatically connects with them. When you need something, you don't tell IPFS where it is, you actually tell what you want by providing the object hash (think of it like a fingerprint of the file/folder/app you want) and IPFS asks his peers until someone has it, then retrieves it for you. This has many advantages, better detailed in the answer to the _What does addressed by content and identities mean?_ question.
+
+TODO: what does _system of files_ mean?
+
 #### What is a BitTorrent swarm?
 #### How do you exhange objects inside of a git repository? What does this mean?
 #### What does _high throughput_ mean?
@@ -111,10 +122,34 @@ __IPFS is also fully distributed__ because there is no central point of failure.
 #### What defines the subset of hyperlinks that are _content-addressed_?
 #### What is a _Merkle DAG_? What is a _generalised_ one?
 #### What is a _blockchain_?
+
+A blockchain is a specific kind of distributed database, which could also be built over IPFS. You can think of a block chain as a huge stack of papers one on top of another. When you want to make a change to the database, you just add a paper on top that describes what are the changes that you are doing.
+
+This system is useful in distributed networks that share a database, like the Bitcoin network. You can't double spend bitcoins (obviously) but why is that? How is it possible? If they're digital, we can't we copy them and make more?
+
+There are no bitcoins, actually. There is only a blockchain, and when Joe places a signed document on top of the blockchain saying that he wants to move this 50 bitcoins to Amazon's wallet to buy a new video game, it won't work because all the nodes in the network will check if the transaction is valid and of course, by looking at all other documents, it's clear that Joe only has 10 bitcoins based on how many were added and/or removed from his wallet. So the network agrees that the document is not valid and won't accept it in their copy of the blockchain, invaliding the transaction. Meanwhile, Alice successfully moves some funds, so all the other nodes see that the transaction is valid and they copy it on top of their blockchain.
+
+Thus, the chain grows, and the network keeps functioning, even though nodes can't trust each other. No one can impersonate you on the blockchain, because transactions where _you_ send money have to be signed by your wallet using __public key cryptography__.
+
 #### What do you mean by _Permanent Web_?
+
+Since IPFS is content addressed (see _what does content-addressed mean?_ answer), every copy of the same file produces the same address when added to IPFS. So as long as there is at least one little computer with one copy of the file and a connection to other computers running IPFS, the file will be available. If Joe is hosting his blog from home and the electric company shuts down his electricity because Joe is broke, his fans will still be able to view the website (unless he didn't use IPFS. Way to go, Joe) because someone, somewhere will have a copy of it since they viewed it recently and the address will be the same because the content is the same.
+
 #### What is a _distributed hashtable_?
+
+An __hashtable__ is a table with two columns and a row for every object. The first column is the identifier (usually an hash but not always), used to identify the data in the second column. Using this _hashtable_, nodes can find the correct object when other nodes give them the identifier.
+
+An __hash__ is a little piece of data, like `QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D`, that is calculated mathematically from another piece of data, and it represents its __fingerprint__.
+
+- when two computers calculate the __hash__ of the same identical file or the same identical message, the hash _will always_ be the same identical hash, but if the data is even slightly different, the hash will be completely different.
+- this means that unless an __hashtable__ is used, there is no way to get the original content from having just the hash (hashing is irreversible).
+- it's also borderline impossible that two different pieces of data or files have the same hash.
+
 #### What is an _incentivized block exchange_?
 #### What does _self certifying_ mean? What does this mean in the context of a namespace?
+
+Using __public key cryptography__, nodes can emit signed messages so that other nodes will be certain that those signed messages weren't being tampered with (modifying a signed message makes signature verification fail). This means that nodes can trust data, even if it's coming from someone that is not the original source, as long as it has a valid signature.
+
 #### What is a _namespace_?
 #### What are the points of failure? What does this mean?
 #### What is a node? Why would I expect them to trust each other?
