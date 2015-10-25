@@ -19,7 +19,6 @@ _Note: This is very much a work in progress! Currently switching from PR to Issu
 
 [Contribute](#contribute)  
 [Ipfs.io](#ipfsio)  
-[Glosssary](#glossary)  
 
 ### Ipfs.io
 _Descriptive text from the homepage_
@@ -209,11 +208,4 @@ IPFS doesn't have central _points of failure_ because it's decentralized (you ca
 #### What is a node? Why would I expect them to trust each other?
 
 A node is a machine running IPFS. It could be a standard desktop computer, a laptop, a mobile device, anything that can run programs and connect to a network really. Nodes never trust each other unless there is mathematical proof that a message, statement or other information is to be trusted: you can learn more by searching mentions of _public key cryptography_ in this textbook and read the contextual answer and question. Anyway, using _public key cryptography_ and _cryptographic hashes_, your node can prove the authenticity and validity of data received from other nodes.
-
-## Glossary
-
-* [Hypermedia](https://github.com/RichardLitt/ipfs-textbook#what-does-hypermedia-mean): "Hypermedia, an extension of the term hypertext, is a nonlinear medium of information which includes graphics, audio, video, plain text and hyperlinks." ([Wiki](https://en.wikipedia.org/wiki/Hypermedia)) The key to understanding _hypermedia_ as opposed to normal _media_ is the hyperlinks, which are interactive pointers. Nonlinear simply means it's not meant to be read in a line, like a novel, but can be accessed and perused at random locations.
-* [Protocol](https://github.com/RichardLitt/ipfs-textbook#what-is-a-protocol-is-it-a-technical-specification-or-the-implementation-or-both)
-* [URI](): A URI is aUniform Resource Identifier, a string of characters used to identify the name of a resource. [Wikipedia](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier).
-* [URL](): A URL is a Uniform Resource Locator. It is a type of [URI], but points to a specific location within a network.
 
