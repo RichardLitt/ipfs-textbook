@@ -1,4 +1,7 @@
 # IPFS Textbook
+
+**Notice: This repo is old, and is not actively being updated. However, if you're keen to edit, please do so!**
+
 Helping me understand what IPFS is and how it works
 
 This is a document where I will define and explain terms that I don't understand about IPFS. This is not necessarily the best place for answering questions about IPFS; if you have questions that you want answered by knowledgeable people, I'd suggest either [ipfs/ipfs](https://github.com/ipfs/ipfs), [ipfs/faq](https://github.com/ipfs/faq), [ipfs/support](https://github.com/ipfs/support), or [ipfs/go-ipfs](https://github.com/ipfs/go-ipfs). This document is for me; it is where I will ask questions I do not know the answer to, and search to answer them on my own, providing **non-technical answers** as much as possible.
